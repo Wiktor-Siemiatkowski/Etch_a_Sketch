@@ -6,11 +6,18 @@ function etchASketch() {
 
 dimBtn.addEventListener('click', () => {
     n = prompt('Define grid side: ');
+    if (n < 0) {
+        alert('Side of Grid must be a positive number!')
+    } else if (n > 100) {
+        alert('Side too big!')
+    } else if (isNaN(n)) {
+        alert('Input is not a number!')
+    } else {
     container.style.gridTemplateColumns = `repeat(${n}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${n}, 1fr)`;
     container.innerHTML = '';
     createGrid();
-})
+}})
 
 createGrid();
 }
