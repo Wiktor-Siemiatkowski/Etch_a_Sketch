@@ -1,5 +1,6 @@
 const container = document.querySelector('.container');
 const dimBtn = document.querySelector('.dimbtn');
+const resetBtn = document.querySelector('.reset');
 let n = 16;
 
 function etchASketch() {
@@ -28,11 +29,16 @@ function createGrid() {
         const cell = document.createElement('div');
         cell.classList.add('cell');
         container.append(cell);
+
+        resetBtn.addEventListener('click', () => {
+            cell.style.backgroundColor = 'white';})
     
         cell.addEventListener('mouseover', () => {
             cell.style.backgroundColor = 'black';
         });
     };
+
 };
+
 
 etchASketch();
