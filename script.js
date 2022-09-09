@@ -1,3 +1,4 @@
+// DOM manipulators
 const container = document.querySelector('.container');
 const dimBtn = document.querySelector('.dimbtn');
 const resetBtn = document.querySelector('.reset');
@@ -6,6 +7,7 @@ const rmBtn = document.querySelector('.rmcolor')
 
 let n = 16;
 
+// Main app function + change dimentions function
 function etchASketch() {
 
 dimBtn.addEventListener('click', () => {
@@ -26,7 +28,10 @@ dimBtn.addEventListener('click', () => {
 createGrid();
 }
 
+// Random number ganerator for rgb values
+const randomRgb = () => Math.floor(Math.random() * 255);
 
+// Create default grid
 function createGrid() {
     for (let i = 0; i < n ** 2; i++) {
         const cell = document.createElement('div');
@@ -60,6 +65,6 @@ function createGrid() {
 
 };
 
-const randomRgb = () => Math.floor(Math.random() * 255);
-//const draw = () => cell.style.backgroundColor = `rgba(0, 0, 0, ${opacityValue})`; opacityValue += 0.1;
+
+// Run the app
 etchASketch();
