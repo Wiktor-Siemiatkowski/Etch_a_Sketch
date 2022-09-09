@@ -1,6 +1,7 @@
 const container = document.querySelector('.container');
 const dimBtn = document.querySelector('.dimbtn');
 const resetBtn = document.querySelector('.reset');
+const colorBtn = document.querySelector('.colorbtn');
 let n = 16;
 
 function etchASketch() {
@@ -36,9 +37,16 @@ function createGrid() {
         cell.addEventListener('mouseover', () => {
             cell.style.backgroundColor = 'black';
         });
+
+
+        colorBtn.addEventListener('click', () => {
+            cell.addEventListener('mouseenter', () => {
+                cell.style.backgroundColor = `rgb(${randomRgb()}, ${randomRgb()}, ${randomRgb()})`;
+            })
+        })
     };
 
 };
 
-
+const randomRgb = () => Math.floor(Math.random() * 255);
 etchASketch();
