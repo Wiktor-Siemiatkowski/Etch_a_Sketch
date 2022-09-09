@@ -2,6 +2,8 @@ const container = document.querySelector('.container');
 const dimBtn = document.querySelector('.dimbtn');
 const resetBtn = document.querySelector('.reset');
 const colorBtn = document.querySelector('.colorbtn');
+const rmBtn = document.querySelector('.rmcolor')
+
 let n = 16;
 
 function etchASketch() {
@@ -32,21 +34,32 @@ function createGrid() {
         container.append(cell);
 
         resetBtn.addEventListener('click', () => {
-            cell.style.backgroundColor = 'white';})
+            cell.style.backgroundColor = 'rgba(255, 255, 255, 0)';
+            opacityValue = 0.1;
+        })
     
+        let opacityValue = 0.1;
         cell.addEventListener('mouseover', () => {
-            cell.style.backgroundColor = 'black';
+            cell.style.backgroundColor = `rgba(0, 0, 0, ${opacityValue})`;
+            opacityValue += 0.1;
         });
 
 
         colorBtn.addEventListener('click', () => {
-            cell.addEventListener('mouseenter', () => {
+            cell.addEventListener('mouseover', () => {
                 cell.style.backgroundColor = `rgb(${randomRgb()}, ${randomRgb()}, ${randomRgb()})`;
             })
-        })
+        });
+
+        rmBtn.addEventListener('click', () => {
+            cell.addEventListener('mouseover', () => {
+                cell.style.backgroundColor = `rgba(0, 0, 0, ${opacityValue})`;
+            })
+        }) 
     };
 
 };
 
 const randomRgb = () => Math.floor(Math.random() * 255);
+//const draw = () => cell.style.backgroundColor = `rgba(0, 0, 0, ${opacityValue})`; opacityValue += 0.1;
 etchASketch();
